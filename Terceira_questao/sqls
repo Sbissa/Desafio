@@ -1,0 +1,29 @@
+use desafio;
+CREATE TABLE IF NOT EXISTS station(
+  ID INT NOT NULL,
+  CITY VARCHAR(21) NOT NULL,
+  STATE VARCHAR(2) NOT NULL,
+  TEMPERATURE INT NOT NULL,
+  LAT_N FLOAT NOT NULL,
+  LONG_W FLOAT NOT NULL,
+  PRIMARY KEY (ID));
+
+
+INSERT INTO station
+VALUES
+(1,'c','SC',10,22.464,88.644),
+(2,'Florianopolis','SC',9,33.423,12.004),
+(3,'Florianopolis','SC',7,123.654,321.456),
+(4,'Florianopolis','SC',20,25.555,17.842),
+(5,'Sao Paulo','SP',9,58.951,22.357),
+(6,'Curitiba','PR',9,46.146,12.864),
+(7,'Curitiba','PR',-4,246.500,121.440),
+(8,'Maceio','AL',50,50.101,71.127),
+(9,'Florianopolis','SC',30,99.021,95.003);
+
+
+select min(temperature) as minTemp from station;
+select max(temperature) as maxTemp from station;
+
+select * from station where TEMPERATURE<10 and STATE='SC' and CITY='Florianopolis';
+select ROUND(sum(lat_n),2) as lat, ROUND(sum(long_w),2) as lon from station;
